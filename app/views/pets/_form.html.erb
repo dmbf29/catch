@@ -1,0 +1,33 @@
+<%= form_for @pet do |f| %>
+  <% if @pet.errors.any? %>
+    <%= @pet.errors.full_messages.join(". ") %>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :found_on %>
+    <%= f.date_select :found_on, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :dead %>
+    <%= f.check_box :dead, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Type" %>
+    <%= f.select :species, Pet::SPECIES,class: 'form-control' %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary" %>
+
+<% end %>

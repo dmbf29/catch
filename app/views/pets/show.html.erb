@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1><%= @pet.name %></h1>
+      <p><%= @pet.species %></p>
+      <p>Found <%= @pet.found_days_ago %> days ago</p>
+      <p><%= @pet.address %></p>
+      <% if @pet.dead? %>
+        <i class="fas fa-skull-crossbones"></i>
+      <% else %>
+        <i class="fas fa-thumbs-up"></i>
+      <% end %>
+      <p>
+        <%= link_to edit_pet_path(@pet) do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+      </p>
+      <p>
+        <%= button_to pet_path(@pet), method: :delete do %>
+          <i class="fas fa-bomb"></i>
+        <% end %>
+      </p>
+      <p>
+        <%= link_to "Home", root_path  %>
+      </p>
+    </div>
+  </div>
+</div>
